@@ -3,8 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { students } from "../data/students";
 
 export default function StudentDetailPage() {
-  const { id } = useParams(); 
-  const student = students.find((s) => s.id === Number(id));
+  const { userid } = useParams();
+  const student = students.find((s) => s.id === Number(userid));
 
   if (!student) {
     return (
@@ -13,6 +13,7 @@ export default function StudentDetailPage() {
         <Link to="/" className="text-indigo-600 hover:underline">
           Back to List
         </Link>
+        {/* return to home page */}
       </div>
     );
   }
@@ -54,4 +55,3 @@ export default function StudentDetailPage() {
     </div>
   );
 }
- 

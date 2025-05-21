@@ -4,7 +4,7 @@ export const students = [
     name: "Rahim",
     age: 18,
     grade: "A",
-    email: "rahim@example.com",
+    email: "rahim@example.com", 
     bio: "An excellent student in math and science.",
     address: "123, Gulshan Avenue, Dhaka",
     phone: "+880123456789",

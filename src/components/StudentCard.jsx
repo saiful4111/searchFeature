@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function StudentCard({ student, showFavorite = true }) {
-  const [favorite, setFavorite] = useState(false);
-
+export default function StudentCard({ student }) {
+  const [favorite, setFavorite] = useState(true);
+  const isLove = true;
   return (
     <div className="bg-white shadow-md rounded-md p-5 hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">{student.name}</h2>
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          {student.name}
+        </h2>
         <p>Age: {student.age}</p>
-        <p>Grade: <span className="font-bold">{student.grade}</span></p>
+        <p>
+          Grade: <span className="font-bold">{student.grade}</span>
+        </p>
         <p className="text-sm text-gray-600">{student.email}</p>
       </div>
-      
+
       <div className="mt-4 flex justify-between items-center">
         <Link
           to={`/students/${student.id}`}
@@ -21,14 +25,16 @@ export default function StudentCard({ student, showFavorite = true }) {
         >
           View Details
         </Link>
-        {showFavorite && (
+        {isLove && (
           <button
             onClick={() => setFavorite(!favorite)}
-            className={`text-2xl ${favorite ? "text-red-500" : "text-gray-300"}`}
+            className={`text-2xl ${
+              favorite ? "text-gray-300" : "text-red-500"
+            }`}
             aria-label="Favorite"
           >
             ♥
-          </button> 
+          </button>
         )}
       </div>
     </div>
@@ -43,9 +49,4 @@ StudentCard.propTypes = {
     grade: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
-  showFavorite: PropTypes.bool,
-};
-
-StudentCard.defaultProps = {
-  showFavorite: true,
 };
