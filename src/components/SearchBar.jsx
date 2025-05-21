@@ -18,3 +18,8 @@ export default function SearchBar({ searchTerm, setSearchTerm, age, setAge }) {
     </div>
   );
 }
+// When you use <input type="number" />, the browser shows a numeric input field.
+
+// But the value you get from e.target.value is still a string representing what the user typed.
+
+// So if the user types 25, e.target.value will be "25" (a string), not the number 25.
